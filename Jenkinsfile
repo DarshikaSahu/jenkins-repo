@@ -29,7 +29,7 @@ pipeline {
 	stage('Push Docker Image') {
 	    steps {
 		script{
-		    withCredentials([usernamePassword(credentialsId: 'dockerhub-			    credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
+		    withCredentials([usernamePassword(credentialsId: 'dockerhub-credentials', passwordVariable: 'DOCKER_PASSWORD', usernameVariable: 'DOCKER_USERNAME')]) {
                         sh 'docker login -u $DOCKER_darshikasahu -p $DOCKER_Psrdishi@1972'
                         sh 'docker tag ml_project:1.0 darshikasahu/ml_project:1.0'
                         sh 'docker push darshikasahu/ml_project:1.0'
@@ -38,4 +38,3 @@ pipeline {
 	    }
 	}
     }
-}
